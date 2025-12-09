@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Диалектологический кружок</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="manifest" href="/static/site.webmanifest">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <style>
+    :root {
+      --text: #111; --muted: #5a5a5a; --line: #cfcfcf; --accent: #8a1a1a; --bg: #fff;
+    }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+    header { border-bottom: 1px solid var(--line); margin-bottom: 16px; }
+
+    .tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 20px; }
+    .tab-btn { border: 1px solid var(--line); background: #f7f7f7; padding: 10px 14px; border-radius: 10px; cursor: pointer; text-align: center; }
+    .tab-btn[aria-selected="true"] { background: #fff; border-color: var(--text); }
+
+    .dialect-panel { display: none; }
+    .dialect-panel[aria-hidden="false"] { display: block; }
+
+    .expeds-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    @media (min-width: 860px) { .expeds-grid { grid-template-columns: 1fr 1fr; } }
+
+    .exped { border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: #fff; }
+    .exped-header { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: baseline; margin-bottom: 8px; }
+    .badge { display: inline-block; font-size: 13px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; background: #f6f6f6; }
+    .panel { border-top: 1px solid var(--line); padding-top: 8px; margin-top: 8px; }
+    .panel ul { margin: 0; padding-left: 18px; }
+    .people li { list-style: none; margin: 4px 0; }
+    .topic { color: var(--muted); font-size: 15px; margin-left: 6px; }
+    .legend { color: var(--muted); font-size: 15px; }
+    .hero {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .hero img {
+      max-width: 100%;
+      height: auto;
+      max-height: 300px;
+    }
+
+    @media (min-width: 768px) {
+      .hero img {
+        max-height: 300px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .hero img {
+        max-height: 400px;
+      }
+}
+    a.ext { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+    a.ext:hover { color: var(--accent); }
+    .section { margin: 18px 0; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Диалектологический кружок</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link" href="/members">Участники</a>
+            <a class="nav-link" href="/projects">Проекты</a>
+            <a class="nav-link" href="/articles">Публикации</a>
+            <a class="nav-link" href="/seminars">Семинары</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="/expeditions">Экспедиции</a>
+            </li>
+        </div>
+      </div>
+    </nav>
+    <main class="wrap">
+    <h3 class="display-4 text-center">Экспедиции</h3>
+    <div class="tabs" role="tablist" aria-label="Говоры">
+      <button class="tab-btn" role="tab" id="tab-wd" aria-controls="panel-wd" aria-selected="true">Западнодвинский район</button>
+      <button class="tab-btn" role="tab" id="tab-op" aria-controls="panel-op" aria-selected="false">Опочецкий район</button>
+      <button class="tab-btn" role="tab" id="tab-sm" aria-controls="panel-sm" aria-selected="false">Будущие экспедиции</button>
+    </div>
+
+    <section id="panel-wd" class="dialect-panel" role="tabpanel" aria-labelledby="tab-wd" aria-hidden="false">
+      <h3 class="text-center">Говоры Западнодвинского района Тверской области</h3>
+      <div class="hero">
+          <img class="center" src="/static/exped2022.jpg" alt="ShetnevoMakeevo">
+      </div>
+      <div class="section">
+        <h4>Экспедиции</h4>
+        <div class="expeds-grid">
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2021</span><strong>Январь</strong><span>Терехово</span></div>
+            <div class="panel"><h4>Предварительные записи</h4><ul class="people"><li>Р.В. Ронько</li><li>М.А. Холодилова</li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2021</span><strong>Июль</strong><span>Шетнево</span></div>
+              <div class="panel"><h4>Состав</h4><ul class="people">А.С. Азанова, З.А. Бутенко, М.С. Замбржицкая, И.А. Марченко, Д.И. Мочульский, Р.В. Ронько, Е.И. Цейтина</ul></div>
+            <div class="panel"><h4>Экспедиционные темы</h4><ul class="people"><li>А.С. Азанова <span class="topic">Интонационные контуры</span></li><li>М.С. Замбржицкая <span class="topic">Интонационные контуры</span></li><li>З.А. Бутенко <span class="topic">Связь ши-форм с типом нарратива</span></li><li>И.А. Марченко <span class="topic">Особенности синтаксической сочетаемости предикативов со значением модальности</span></li><li>Д.И. Мочульский <span class="topic">Яканье</span></li><li>Е.И. Цейтина <span class="topic">Система причастий</span></li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2022</span><strong>Июль</strong><span>Терехово</span></div>
+              <div class="panel"><h4>Состав</h4><ul class="people"> А.С. Азанова, А.Д. Анисимов, Е.Е. Войтович, Е.А. Заливина, М.С. Замбржицкая, С.А. Землянская, И.А. Марченко, Д.И. Мочульский, Р.В. Ронько</ul></div>
+            <div class="panel"><h4>Экспедиционные темы</h4><ul class="people"><li>А.Д. Анисимов <span class="topic">Возвратный аффикс</span></li><li>И.А. Марченко <span class="topic">Системы Род., Дат. и Мест. падежей а-склонения</span></li><li>Д.И. Мочульский <span class="topic">Морфология личных местоимений</span></li><li>Е.А. Заливина <span class="topic">Глагольная морфология в 3-м лице презенса</span></li><li>М.С. Замбржицкая <span class="topic">Реализация /в/</span></li><li>С.А. Землянская <span class="topic">Творительный падеж</span></li><li>Общая тема <span class="topic">Лексика ДАРЯ</span></li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2023</span><strong>Апрель–май</strong><span>Терехово</span></div>
+              <div class="panel"><h4>Состав</h4><ul class="people"> Р.В. Ронько, А.С. Азанова, А.Д. Анисимов, Е.Е. Войтович, М.А. Ермолова, Е.А. Заливина, М.С. Замбржицкая, А.С. Кузьмина, А.В. Манусов, И.А. Марченко, Д.И. Мочульский, М.С. Смолкина</ul></div>
+            <div class="panel"><h4>Экспедиционные темы</h4><ul class="people"><li>А.Д. Анисимов <span class="topic">Лексика ДАРЯ</span></li><li>А.С. Азанова <span class="topic">Предлоги «с» и «из»</span></li><li>Е.А. Заливина <span class="topic">Сочетания с числительными</span></li><li>М.С. Замбржицкая <span class="topic">Твёрдый [ш:]. В соответствии с долгим мягким шипящим [ш’:]</span></li><li>А.С. Кузьмина <span class="topic">Словоизменение/словообразование: название детёнышей домашних животных в единственном и множественном числе в деревнях Макеево, Шетнево, Щелкино. Глаголы деторождения</span></li><li>А.В. Манусов <span class="topic">Степени сравнения</span></li><li>Д.И. Мочульский <span class="topic">Предлоги</span></li><li>М.С. Смолкина <span class="topic">Конкуренция относительных местоимений в говоре д. Шетнево и Макеево</span></li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2023</span><strong>Октябрь</strong><span>Каськово</span></div>
+              <div class="panel"><h4>Состав</h4><ul class="people"> Е.Е. Войтович, Д.И. Мочульский, М.С. Смолкина, П.Д. Третьякова</ul></div>
+            <div class="panel"><h4>Экспедиционные темы</h4><ul class="people"><li>Е.Е. Войтович <span class="topic">Эксперимент с согласованием причастий</span></li><li>Д.И. Мочульский <span class="topic">Вокализм и консонантизм в говоре д. Пятиусово; предлоги</span></li><li>П.Д. Третьякова <span class="topic">Эксперимент с номинативным объектом</span></li><li>М.С. Смолкина <span class="topic">Союз «пока» в говоре д. Шетнево, Макеево и Пятиусово</span></li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2024</span><strong>Июль–август</strong><span>Каськово</span></div>
+              <div class="panel"><h4>Состав</h4><ul class="people"> Э.В. Агеева, А.В. Анцупова, А.С. Азанова, П.С. Гумерова, А.С. Кузьмина, А.В. Манусов, В.Е. Монина, Р.В. Ронько, М.С. Смолкина</ul></div>
+            <div class="panel"><h4>Экспедиционные темы</h4><ul class="people"><li>А.С. Азанова <span class="topic">Синтаксис падежа объекта</span></li><li>А.С. Кузьмина <span class="topic">Глагольная морфология в 3-м лице презенса: сравнение Макеевского и Пятиусовского кустов деревень</span></li><li>А.В. Манусов <span class="topic">Ассимиляции ДН и БМ в говоре села Пятиусово</span></li><li>А.В. Анцупова <span class="topic">Пропуск предлога</span></li><li>Э.В. Агеева <span class="topic">Система употребления причастий</span></li><li>П.С. Гумерова <span class="topic">Наречия времени и места</span></li><li>В.Е. Монина <span class="topic">Интонационный контур переспроса</span></li><li>М.С. Смолкина <span class="topic">Относительные конструкции Пятиусово и Шетнево/Макеево</span></li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2025</span><strong>Апрель–май</strong><span>Каськово</span></div>
+              <div class="panel"><h4>Состав</h4><ul class="people"> А.А. Аскарова, Э.В. Агеева, М.С. Замбржицкая, С.С. Земичева, А.С. Кузьмина, Д.Ю. Никитенко, А.В. Манусов, Ф.А. Плешаков, С.А. Пономарёва, Р.В. Ронько, М.С. Смолкина</ul></div>
+            <div class="panel"><h4>Экспедиционные темы</h4><ul class="people"><li>Э.В. Агеева <span class="topic">Система употребления причастий</span></li><li>А.А. Аскарова <span class="topic">Повтор предлога</span></li><li>Ф.А. Плешаков <span class="topic">Повтор предлога</span></li><li>Д.Ю. Никитенко <span class="topic">Акцентные парадигмы слов a-склонения</span></li><li>С.А. Пономарёва <span class="topic">Диалектные словообразовательные модели</span></li><li>М.С. Смолкина <span class="topic">Относительные местоимения в говорах Шетнево/Макеево и Пятиусово</span></li></ul></div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h4>Корпуса</h4>
+        <ul>
+          <li>Р.В. Ронько, А.С. Азанова, З.А. Бутенко, М.С. Замбржицкая, И.А. Марченко, Д.И. Мочульский, Е.И. Цейтина, Е.Ю. Волошина. Корпус деревень Шетнево и Макеево 2022, Москва: Международная лаборатория языковой конвергенции, НИУ ВШЭ; Институт русского языка им. В.В. Виноградова РАН. Электронный ресурс:  <a class="ext" href="http://lingconlab.ru/shetnevo/#!/">http://lingconlab.ru/shetnevo/#!/</a></li>
+          <li>Р.В. Ронько, Э.В. Агеева, А.В. Анцупова, А.С. Азанова, Е.Е. Войтович, П.С. Гумерова, А.С. Кузьмина, А.В. Манусов, В.Е. Монина, Д.И. Мочульский, М.С. Смолкина, Корпус говора деревни Пятиусово 2024, Москва: Международная лаборатория языковой конвергенции, НИУ ВШЭ; Институт русского языка им. В.В. Виноградова РАН. Электронный ресурс: <a class="ext" href="https://lingconlab.ru/pyatiusovo">https://lingconlab.ru/pyatiusovo</a></li>
+        </ul>
+      </div>
+      <div class="section">
+        <h4>Публикации</h4>
+        <ul>
+          <li><span class="badge">Статья</span> Земичева С.С., Мороз Г.А., Наккарато М.К. Вариативность годов vs. лет в русских говорах: корпусное исследование // Вопросы языкознания. (Принято в печать) </li>
+          <li><span class="badge">Статья</span> Ron’ko R. Evaluating dialect loss through priming of code-switching: a case of Pskov dialects of Russian // Ricerche slavistiche 2025, 8 (68).</li>
+          <li><span class="badge">ВКР</span> Заливина Е.А. Разработка системы классификации русской диалектной речи. Факультет гуманитарных наук (Магистратура). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1054020552">https://www.hse.ru/edu/vkr/1054020552</a></li>
+          <li><span class="badge">ВКР</span> Мочульский Д.И. Семантика первообразных предлогов в русских говорах. Факультет гуманитарных наук (Магистратура). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1049018255">https://www.hse.ru/edu/vkr/1049018255</a></li>
+          <li><span class="badge">ВКР</span> Кузьмина А.С. Системы Род., Дат. и Мест. падежей a-склонения в русских говорах первичного формирования: корпусное исследование. Факультет гуманитарных наук (Бакалавриат). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1051241999">https://www.hse.ru/edu/vkr/1051241999</a></li>
+          <li><span class="badge">ВКР</span> Смолкина М.С. Относительные местоимения в русских говорах: корпусное исследование. Факультет гуманитарных наук (Бакалавриат). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1051242017">https://www.hse.ru/edu/vkr/1051242017</a></li>
+          <li><span class="badge">Статья</span> Ронько Р.В, Анисимов А.Д., Заливина Е.А., Землянская С.А. Изменение лексического строя в русских диалектах: случай одного псковского говора // Вопросы языкознания. 2024. 4: 27–44. URL: <a class="ext" href="https://vja.ruslang.ru/ru/archive/2024-4/27-44">https://vja.ruslang.ru/ru/archive/2024-4/27-44</a></li>
+          <li><span class="badge">Тезисы</span> Анцупова А.В. Конструкции с пропуском предлога в в говоре деревень Западнодвинского района Тверской области // Актуальные проблемы русской диалектологии: Материалы международной конференции. Кармакова ОЕ (отв. ред.). М.: Институт русского языка им. ВВ Виноградова РАН. – 2024. – С. 11-14. URL: <a class="ext" href="https://ruslang.ru/sites/default/files/2024-12/dialect_conf_2024.pdf">https://ruslang.ru/sites/default/files/2024-12/dialect_conf_2024.pdf</a></li>
+          <li><span class="badge">Статья</span> Ермолова М.В., Мороз Г.А. Отпричастные -ши-формы в двух псковских и одном смоленском говорах: сопоставление подсистем // Slovĕne. 2024. Т. 13. № 2. С. 157–183. URL: <a class="ext" href="https://slovene.ru/ojs/index.php/slovene/article/view/635">https://slovene.ru/ojs/index.php/slovene/article/view/635</a></li>
+          <li><span class="badge">Статья</span> Zalivina, E. (2024). Automatic Detection of Dialectal Features of Pskov Dialects in the Speech of Native Speakers. In: Ignatov, D.I., et al. Analysis of Images, Social Networks and Texts. AIST 2023. Lecture Notes in Computer Science, vol 14486. Springer, Cham. URL: <a class="ext" href="https://doi.org/10.1007/978-3-031-54534-4_12">doi.org/10.1007/978-3-031-54534-4_12</a></li>
+          <li><span class="badge">ВКР</span> Аскарова Д.Р. Особенности глагольного ударения в западнорусских говорах. Факультет гуманитарных наук (Бакалавриат). 2024. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/927268838">https://www.hse.ru/edu/vkr/927268838</a></li>
+          <li><span class="badge">ВКР</span> Войтович Е.Е. Грамматикализация согласовательной модели страдательных причастий в говорах западной диалектной зоны. Факультет гуманитарных наук (Бакалавриат). 2024. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/927268980">https://www.hse.ru/edu/vkr/927268980</a></li>
+          <li><span class="badge">ВКР</span> Третьякова П.Д. Дифференцированное объектное маркирование в конструкциях с модальным предикатом НАДО в русских говорах. Факультет гуманитарных наук (Бакалавриат). 2024. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/927268857">https://www.hse.ru/edu/vkr/927268857</a></li>
+          <li><span class="badge">КР</span> Агеева Э.В. Система употребления причастий на -ши в западнодвинских диалектах русского языка на примере деревни Пятиусово. Факультет гуманитарных наук (Бакалавриат). 2024.</li>
+          <li><span class="badge">КР</span> Смолкина М.С. Бесприставочные итеративы на -ива-/-ыва-/-ва- в русских говорах (на материале устных корпусов). Факультет гуманитарных наук (Бакалавриат). 2024.</li>
+          <li><span class="badge">Статья</span> Ронько Р.В., Азанова А.С., Анисимов А.Д., Войтович Е.Е., Заливина Е.А., Землянская С.А., Марченко И.А., Мочульский Д.И. Псковский говор деревень Шетнево, Макеево, Щелкино, Терехово и Степаньково Западнодвинского района Тверской области. Элементы корпусного описания и полевые материалы. Русский язык в научном освещении, 2023, 1(45): 216–262. URL: <a class="ext" href="https://rjano.ruslang.ru/ru/archive/2023-1/216-262">https://rjano.ruslang.ru/ru/archive/2023-1/216-262</a></li>
+          <li><span class="badge">ВКР</span> Заливина Е.А. Автоматическое выделение диалектных черт псковских говоров в речи носителей на материале данных Опочецкого района Псковской области и Западнодвинского района Тверской области. Факультет гуманитарных наук (Бакалавриат). 2023. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/837214818">https://www.hse.ru/edu/vkr/837214818</a></li>
+          <li><span class="badge">ВКР</span> Замбржицкая М.С. Фонетическая реализация фонемы /в/ в восточнославянских диалектах. Факультет гуманитарных наук (Бакалавриат). 2023. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/837215364">https://www.hse.ru/edu/vkr/837215364</a></li>
+          <li><span class="badge">КР</span> Землянская С.А. Плюсквамперфект в русских диалектах. Факультет гуманитарных наук (Бакалавриат). 2023.</li>
+          <li><span class="badge">КР</span> ​​Замбржицкая М.С. Эволюция двух сопряженных изоглосс в Псковских говорах. 2023.</li>
+          <li><span class="badge">ВКР</span> Цейтина Е.И. Конструкции с причастиями в предикативном значении в русских говорах. Факультет гуманитарных наук (Бакалавриат). 2022. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/634899015">https://www.hse.ru/edu/vkr/634899015</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="panel-op" class="dialect-panel" role="tabpanel" aria-labelledby="tab-op" aria-hidden="true">
+      <h3 class="text-center">Говоры Опочецкого района Псковской области</h3>
+      <div class="section">
+        <h4>Экспедиции</h4>
+        <div class="expeds-grid">
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2018</span><span>Кадниково, Барабаны, Балаши, Глазаново, Пуршево</span></div>
+            <div class="panel"><h4>Состав</h4><ul class="people"> Р.В. Ронько, Е.А. Вольф, М.Ю. Гребёнкина, М.Ю. Ершова, А.В. Охапкина, А.С. Хадасевич</ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2019</span><span>Кадниково, Барабаны, Балаши, Глазаново, Пуршево, Лаптево, Самсоново</span></div>
+            <div class="panel"><h4>Состав</h4><ul class="people">Р.В. Ронько, А.С. Азанова, М.Ю. Гребёнкина, М.Ю. Ершова,, А.С. Хадасевич, М.В. Ермолова</ul></div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h4>Корпуса</h4>
+        <ul>
+          <li>Р.В. Ронько, Е.А. Вольф, М.Ю. Гребёнкина, М.Ю. Ершова, А.В. Охапкина, А.С. Хадасевич, В.А. Морозова. Корпус опочецких говоров 2019, Москва: Международная лаборатория языковой конвергенции, НИУ ВШЭ; Институт русского языка им. В.В. Виноградова РАН. Электронный ресурс:  <a class="ext" href="https://lingconlab.ru/opochka">https://lingconlab.ru/opochka</a></li>
+        </ul>
+      </div>
+      <div class="section">
+        <h4>Публикации</h4>
+        <ul>
+          <li><span class="badge">Статья</span> Roman, Ronko. "9 The Nominative Object in modern Northern and Western Russian dialects". Convergence and Divergence in the Eastern Circum-Baltic Area: Volume 1: The Northern Part - A Synthetic View, especially on Finnic, and Case Studies, edited by Björn Wiemer, Peter Arkadiev, Petar Kehayov and Rogier Blokland, De Gruyter Mouton, 2025, pp. 589-606</li>
+          <li><span class="badge">Статья</span> Anna, Malysheva and Roman, Ronko. "8 Case selection for the direct object of negated verbs in Russian dialects". Convergence and Divergence in the Eastern Circum-Baltic Area: Volume 1: The Northern Part - A Synthetic View, especially on Finnic, and Case Studies, edited by Björn Wiemer, Peter Arkadiev, Petar Kehayov and Rogier Blokland, De Gruyter Mouton, 2025, pp. 571-587.</li>
+          <li><span class="badge">ВКР</span> Заливина Е.А. Разработка системы классификации русской диалектной речи. Факультет гуманитарных наук (Магистратура). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1054020552">https://www.hse.ru/edu/vkr/1054020552</a></li>
+          <li><span class="badge">ВКР</span> Мочульский Д.И. Семантика первообразных предлогов в русских говорах. Факультет гуманитарных наук (Магистратура). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1049018255">https://www.hse.ru/edu/vkr/1049018255</a></li>
+          <li><span class="badge">ВКР</span> Кузьмина А.С. Системы Род., Дат. и Мест. падежей a-склонения в русских говорах первичного формирования: корпусное исследование. Факультет гуманитарных наук (Бакалавриат). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1051241999">https://www.hse.ru/edu/vkr/1051241999</a></li>
+          <li><span class="badge">ВКР</span> Смолкина М.С. Относительные местоимения в русских говорах: корпусное исследование. Факультет гуманитарных наук (Бакалавриат). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1051242017">https://www.hse.ru/edu/vkr/1051242017</a></li>
+          <li><span class="badge">ВКР</span> Аскарова Д.Р. Особенности глагольного ударения в западнорусских говорах. Факультет гуманитарных наук (Бакалавриат). 2024. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/927268838">https://www.hse.ru/edu/vkr/927268838</a></li>
+          <li><span class="badge">ВКР</span> Войтович Е.Е. Грамматикализация согласовательной модели страдательных причастий в говорах западной диалектной зоны. Факультет гуманитарных наук (Бакалавриат). 2024. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/927268980">https://www.hse.ru/edu/vkr/927268980</a></li>
+          <li><span class="badge">Статья</span> Е. А. Заливина. Вариативность окончаний глаголов в форме 3-го лица настоящего времени в говоре вокруг города Опочки (Псковская область, Опочецкий район) Русский язык в научном освещении 2023. № 1 (45), С. 180 - 201</li>
+          <li><span class="badge">ВКР</span> Азанова А.С. Эволюция второго предложного падежа в русских диалектах с середины 20-го до начала 21-го века. Факультет гуманитарных наук (Магистратура). 2022. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1049018255">https://www.hse.ru/edu/vkr/1049018255</a></li>
+          <li><span class="badge">Статья</span> Ронько Р. В. Конструкция с предлогом на и винительным падежом в значении адресата при глаголах говорить и сказать в некоторых южнорусских и западнорусских говорах // Slovĕne. 2021. Т. 10. № 2. С. 277-296.</li>
+          <li><span class="badge">ВКР</span> Гребенкина М.Ю. Атрибутивные сочетания со значением посессивности в русских говорах. Факультет гуманитарных наук (Бакалавриат). 2021. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/472526011">https://www.hse.ru/edu/vkr/472526011</a></li>
+          <li><span class="badge">Статья</span> Ронько Р. В. Материалы экспедиции 2019 г. в Опочецкий район Псковской области: тексты с комментарием // Русский язык в научном освещении. 2020. № 39 (1). С. 234-258.</li>
+          <li><span class="badge">Статья</span> Малышева А. В., Ронько Р. В. Русский объектный генитив при отрицании по данным диалектных корпусов и устного корпуса НКРЯ // Вопросы языкознания. 2020. № 4. С. 25-54.</li>
+          <li><span class="badge">Статья</span> Дьяченко С.В., Жидкова Е.Г., Малышева А.В., Ронько Р.В, Тер-Аванесова А.В. Экспедиция в Опочецкий район Псковской области // Русский язык в научном освещении, 2018, № 2 (36).</li>
+          <li><span class="badge">Статья</span> Скачедубова М.В. О некоторых особенностях употребления перфектных и плюсквамперфектных конструкций в псковских говорах (на материале одного говора Опочецкого района Псковской области) // Известия РАН. Серия литературы и языка. 2022. Т. 81. № 2. С. 92–105.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="panel-sm" class="dialect-panel" role="tabpanel" aria-labelledby="tab-sm" aria-hidden="true">
+      <h3>Территория обследования</h3>
+      <div class="section">
+        <h4>Экспедиции</h4>
+        <p class="legend">Здесь пока нет внесённых экспедиций.</p>
+      </div>
+      <div class="section">
+        <h4>Корпуса</h4>
+        <p class="legend">Корпуса будут перечислены здесь.</p>
+      </div>
+      <div class="section">
+        <h4>Публикации</h4>
+        <p class="legend">Публикации, дипломы и курсовые появятся здесь.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      const tabs = Array.from(document.querySelectorAll('.tab-btn'));
+      const panels = {
+        'tab-wd': document.getElementById('panel-wd'),
+        'tab-op': document.getElementById('panel-op'),
+        'tab-sm': document.getElementById('panel-sm')
+      };
+      function activate(id){
+        tabs.forEach(t => t.setAttribute('aria-selected', String(t.id === id)));
+        Object.entries(panels).forEach(([tid, panel]) => {
+          panel.setAttribute('aria-hidden', String(tid !== id));
+        });
+        let hash = '#zapadnaya_dvina';
+        if (id === 'tab-op') hash = '#opochka';
+        if (id === 'tab-sm') hash = '#smolensk';
+        if (location.hash !== hash) history.replaceState(null, '', hash);
+      }
+      tabs.forEach(t => t.addEventListener('click', () => activate(t.id)));
+      if (location.hash === '#opochka') activate('tab-op');
+      else if (location.hash === '#smolensk') activate('tab-sm');
+      else activate('tab-wd');
+    })();
+  </script>
+</body>
+</html>
