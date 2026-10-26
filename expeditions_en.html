@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dialectological Study Group</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+    <link rel="manifest" href="static/site.webmanifest">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <style>
+    :root {
+      --text: #111; --muted: #5a5a5a; --line: #cfcfcf; --accent: #8a1a1a; --bg: #fff;
+    }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 24px; }
+    header { border-bottom: 1px solid var(--line); margin-bottom: 16px; }
+
+    .tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0 20px; }
+    .tab-btn { border: 1px solid var(--line); background: #f7f7f7; padding: 10px 14px; border-radius: 10px; cursor: pointer; text-align: center; }
+    .tab-btn[aria-selected="true"] { background: #fff; border-color: var(--text); }
+
+    .dialect-panel { display: none; }
+    .dialect-panel[aria-hidden="false"] { display: block; }
+
+    .expeds-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    @media (min-width: 860px) { .expeds-grid { grid-template-columns: 1fr 1fr; } }
+
+    .exped { border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: #fff; }
+    .exped-header { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: baseline; margin-bottom: 8px; }
+    .badge { display: inline-block; font-size: 13px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; background: #f6f6f6; }
+    .panel { border-top: 1px solid var(--line); padding-top: 8px; margin-top: 8px; }
+    .panel ul { margin: 0; padding-left: 18px; }
+    .people li { list-style: none; margin: 4px 0; }
+    .topic { color: var(--muted); font-size: 15px; margin-left: 6px; }
+    .legend { color: var(--muted); font-size: 15px; }
+    .hero {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .hero img {
+      max-width: 100%;
+      height: auto;
+      max-height: 300px;
+    }
+
+    @media (min-width: 768px) {
+      .hero img {
+        max-height: 300px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .hero img {
+        max-height: 400px;
+      }
+}
+    a.ext { color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
+    a.ext:hover { color: var(--accent); }
+    .section { margin: 18px 0; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index_en.html">Dialectological Study Group</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link" href="members_en.html">Members</a>
+            <a class="nav-link" href="projects_en.html">Projects</a>
+            <a class="nav-link" href="articles_en.html">Publications</a>
+            <a class="nav-link" href="seminars_en.html">Seminars</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="expeditions_en.html">Expeditions</a>
+            </li>
+            <a class="nav-link" href="workshop_en.html">Workshop</a>
+        </div>
+        <div class="navbar-nav ml-auto">
+            <a class="btn btn-primary btn-sm px-3 my-2 my-lg-0 font-weight-bold" id="lang-switch" href="expeditions.html">RU</a>
+        </div>
+      </div>
+    </nav>
+    <main class="wrap">
+    <h3 class="display-4 text-center">Expeditions</h3>
+    <div class="tabs" role="tablist" aria-label="Dialects">
+      <button class="tab-btn" role="tab" id="tab-wd" aria-controls="panel-wd" aria-selected="true">Zapadnodvinsky District</button>
+      <button class="tab-btn" role="tab" id="tab-op" aria-controls="panel-op" aria-selected="false">Opochka District</button>
+      <button class="tab-btn" role="tab" id="tab-sm" aria-controls="panel-sm" aria-selected="false">Future Expeditions</button>
+    </div>
+
+    <section id="panel-wd" class="dialect-panel" role="tabpanel" aria-labelledby="tab-wd" aria-hidden="false">
+      <h3 class="text-center">Dialects of the Zapadnodvinsky District, Tver Oblast</h3>
+      <div class="hero">
+          <img class="center" src="static/exped2022.jpg" alt="ShetnevoMakeevo">
+      </div>
+      <div class="section">
+        <h4>Expeditions</h4>
+        <div class="expeds-grid">
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2021</span><strong>January</strong><span>Terekhovo</span></div>
+            <div class="panel"><h4>Preliminary recordings</h4><ul class="people"><li>R. V. Ronko</li><li>M. A. Kholodilova</li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2021</span><strong>July</strong><span>Shetnevo</span></div>
+              <div class="panel"><h4>Team</h4><ul class="people">A. S. Azanova, Z. A. Butenko, M. S. Zambrzhitskaya, I. A. Marchenko, D. I. Mochulsky, R. V. Ronko, E. I. Tseytina</ul></div>
+            <div class="panel"><h4>Expedition Topics</h4><ul class="people"><li>A. S. Azanova <span class="topic">Intonation contours</span></li><li>M. S. Zambrzhitskaya <span class="topic">Intonation contours</span></li><li>Z. A. Butenko <span class="topic">Connection of -shi forms with narrative type</span></li><li>I. A. Marchenko <span class="topic">Syntactic combinability of predicatives with modal meaning</span></li><li>D. I. Mochulsky <span class="topic">Yakanye</span></li><li>E. I. Tseytina <span class="topic">Participle system</span></li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2022</span><strong>July</strong><span>Terekhovo</span></div>
+              <div class="panel"><h4>Team</h4><ul class="people"> A. S. Azanova, A. D. Anisimov, E. E. Voitovich, E. A. Zalivina, M. S. Zambrzhitskaya, S. A. Zemlyanskaya, I. A. Marchenko, D. I. Mochulsky, R. V. Ronko</ul></div>
+            <div class="panel"><h4>Expedition Topics</h4><ul class="people"><li>A. D. Anisimov <span class="topic">Reflexive affix</span></li><li>I. A. Marchenko <span class="topic">Genitive, Dative and Locative case systems of the a-declension</span></li><li>D. I. Mochulsky <span class="topic">Morphology of personal pronouns</span></li><li>E. A. Zalivina <span class="topic">Verbal morphology in the 3rd person present</span></li><li>M. S. Zambrzhitskaya <span class="topic">Realization of /v/</span></li><li>S. A. Zemlyanskaya <span class="topic">Instrumental case</span></li><li>General topic <span class="topic">DARYA lexicon</span></li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2023</span><strong>April–May</strong><span>Terekhovo</span></div>
+              <div class="panel"><h4>Team</h4><ul class="people"> R. V. Ronko, A. S. Azanova, A. D. Anisimov, E. E. Voitovich, M. V. Ermolova, E. A. Zalivina, M. S. Zambrzhitskaya, A. S. Kuzmina, A. V. Manusov, I. A. Marchenko, D. I. Mochulsky, M. S. Smolkina</ul></div>
+            <div class="panel"><h4>Expedition Topics</h4><ul class="people"><li>A. D. Anisimov <span class="topic">DARYA lexicon</span></li><li>A. S. Azanova <span class="topic">Prepositions 's' and 'iz'</span></li><li>E. A. Zalivina <span class="topic">Combinations with numerals</span></li><li>M. S. Zambrzhitskaya <span class="topic">Hard [š:]. In correspondence with the long soft sibilant [š':]</span></li><li>A. S. Kuzmina <span class="topic">Inflection/word formation: names of young domestic animals in singular and plural in the villages of Makeevo, Shetnevo, Shchelkino. Verbs of giving birth</span></li><li>A. V. Manusov <span class="topic">Degrees of comparison</span></li><li>D. I. Mochulsky <span class="topic">Prepositions</span></li><li>M. S. Smolkina <span class="topic">Competition of relative pronouns in the dialects of Shetnevo and Makeevo</span></li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2023</span><strong>October</strong><span>Kaskovo</span></div>
+              <div class="panel"><h4>Team</h4><ul class="people"> E. E. Voitovich, D. I. Mochulsky, M. S. Smolkina, P. D. Tretyakova</ul></div>
+            <div class="panel"><h4>Expedition Topics</h4><ul class="people"><li>E. E. Voitovich <span class="topic">Experiment on participle agreement</span></li><li>D. I. Mochulsky <span class="topic">Vocalism and consonantism in the dialect of Pyatiusovo; prepositions</span></li><li>P. D. Tretyakova <span class="topic">Experiment on nominative object</span></li><li>M. S. Smolkina <span class="topic">The conjunction 'poka' in the dialects of Shetnevo, Makeevo and Pyatiusovo</span></li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2024</span><strong>July–August</strong><span>Kaskovo</span></div>
+              <div class="panel"><h4>Team</h4><ul class="people"> E. V. Ageeva, A. V. Antsupova, A. S. Azanova, P. S. Gumerova, A. S. Kuzmina, A. V. Manusov, V. E. Monina, R. V. Ronko, M. S. Smolkina</ul></div>
+            <div class="panel"><h4>Expedition Topics</h4><ul class="people"><li>A. S. Azanova <span class="topic">Syntax of object case</span></li><li>A. S. Kuzmina <span class="topic">Verbal morphology in 3rd person present: comparison of Makeevo and Pyatiusovo dialect clusters</span></li><li>A. V. Manusov <span class="topic">DN and BM assimilations in the dialect of Pyatiusovo</span></li><li>A. V. Antsupova <span class="topic">Preposition omission</span></li><li>E. V. Ageeva <span class="topic">System of participle usage</span></li><li>P. S. Gumerova <span class="topic">Adverbs of time and place</span></li><li>V. E. Monina <span class="topic">Intonation contour of echo questions</span></li><li>M. S. Smolkina <span class="topic">Relative constructions in Pyatiusovo and Shetnevo/Makeevo</span></li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2025</span><strong>April–May</strong><span>Kaskovo</span></div>
+              <div class="panel"><h4>Team</h4><ul class="people"> A. A. Askarova, E. V. Ageeva, M. S. Zambrzhitskaya, S. S. Zemicheva, A. S. Kuzmina, D. Yu. Nikitenko, A. V. Manusov, F. A. Pleshakov, S. A. Ponomaryova, R. V. Ronko, M. S. Smolkina</ul></div>
+            <div class="panel"><h4>Expedition Topics</h4><ul class="people"><li>E. V. Ageeva <span class="topic">System of participle usage</span></li><li>A. A. Askarova <span class="topic">Preposition repetition</span></li><li>F. A. Pleshakov <span class="topic">Preposition repetition</span></li><li>D. Yu. Nikitenko <span class="topic">Accentual paradigms of a-declension words</span></li><li>S. A. Ponomaryova <span class="topic">Dialect word-formation models</span></li><li>M. S. Smolkina <span class="topic">Relative pronouns in the dialects of Shetnevo/Makeevo and Pyatiusovo</span></li></ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2026</span><strong>June–July</strong><span>Kaskovo</span></div>
+              <div class="panel"><h4>Team</h4><ul class="people"> A. Yu. Grishanova, A. M. Esin, M. S. Zambrzhitskaya, D. Yu. Nikitenko, R. V. Ronko, V. S. Rybinsky, V. D. Slesarev, A. A. Fitiskina</ul></div>
+            <div class="panel"><h4>Expedition Topics</h4><ul class="people"><li>A. Yu. Grishanova <span class="topic">Stress of past tense verbs</span></li><li>A. M. Esin <span class="topic">Dialect lexicon in the semantic field TRACE</span></li><li>M. S. Zambrzhitskaya <span class="topic">Acoustic properties of [š] and [š']</span></li><li>D. Yu. Nikitenko <span class="topic">Second and first prepositional cases</span></li><li>V. S. Rybinsky <span class="topic">Realization patterns of /c/</span></li><li>V. D. Slesarev <span class="topic">Realization patterns of /č/</span></li><li>A. A. Fitiskina <span class="topic">Telicity, actional classes of verbs and semantics of -vshi participles</span></li></ul></div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h4>Corpora</h4>
+        <ul>
+          <li>R. V. Ronko, A. S. Azanova, Z. A. Butenko, M. S. Zambrzhitskaya, I. A. Marchenko, D. I. Mochulsky, E. I. Tseytina, E. Yu. Voloshina. Corpus of Shetnevo and Makeevo 2022, Moscow: Linguistic Convergence Laboratory, HSE University; V.V. Vinogradov Russian Language Institute of the Russian Academy of Sciences. Electronic resource: <a class="ext" href="http://lingconlab.ru/shetnevo/#!/">http://lingconlab.ru/shetnevo/#!/</a></li>
+          <li>R. V. Ronko, E. V. Ageeva, A. V. Antsupova, A. S. Azanova, E. E. Voitovich, P. S. Gumerova, A. S. Kuzmina, A. V. Manusov, V. E. Monina, D. I. Mochulsky, M. S. Smolkina. Corpus of the Russian dialect spoken in Pyatiusovo 2024, Moscow: Linguistic Convergence Laboratory, HSE University; V.V. Vinogradov Russian Language Institute of the Russian Academy of Sciences. Electronic resource: <a class="ext" href="https://lingconlab.ru/pyatiusovo">https://lingconlab.ru/pyatiusovo</a></li>
+        </ul>
+      </div>
+      <div class="section">
+        <h4>Publications</h4>
+        <ul>
+          <li><span class="badge">Article</span> Zemicheva S.S., Moroz G.A., Naccarato M.K. Variation of godov vs. let in Russian dialects: a corpus study // Voprosy Jazykoznanija. (In press)</li>
+          <li><span class="badge">Article</span> Ron’ko R. Evaluating dialect loss through priming of code-switching: a case of Pskov dialects of Russian // Ricerche slavistiche 2025, 8 (68).</li>
+          <li><span class="badge">Qualifying paper</span> Zalivina E.A. Development of a classification system for Russian dialect speech. Faculty of Humanities (Master's). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1054020552">https://www.hse.ru/edu/vkr/1054020552</a></li>
+          <li><span class="badge">Qualifying paper</span> Mochulsky D.I. Semantics of primary prepositions in Russian dialects. Faculty of Humanities (Master's). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1049018255">https://www.hse.ru/edu/vkr/1049018255</a></li>
+          <li><span class="badge">Qualifying paper</span> Kuzmina A.S. Genitive, Dative, and Locative case systems of the a-declension in Russian dialects of primary formation: a corpus study. Faculty of Humanities (Bachelor's). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1051241999">https://www.hse.ru/edu/vkr/1051241999</a></li>
+          <li><span class="badge">Qualifying paper</span> Smolkina M.S. Relative pronouns in Russian dialects: a corpus study. Faculty of Humanities (Bachelor's). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1051242017">https://www.hse.ru/edu/vkr/1051242017</a></li>
+          <li><span class="badge">Article</span> Ronko R.V., Anisimov A.D., Zalivina E.A., Zemlyanskaya S.A. Changes in the lexical inventory of Russian dialects: the case of one Pskov dialect // Voprosy Jazykoznanija. 2024. 4: 27–44. URL: <a class="ext" href="https://vja.ruslang.ru/ru/archive/2024-4/27-44">https://vja.ruslang.ru/ru/archive/2024-4/27-44</a></li>
+          <li><span class="badge">Abstract</span> Antsupova A.V. Constructions with preposition omission in the dialect of the villages of the Zapadnodvinsky District of Tver Oblast // Current Problems of Russian Dialectology: Proceedings of the international conference. Karmakova O.E. (ed.). Moscow: V.V. Vinogradov Russian Language Institute of the Russian Academy of Sciences. – 2024. – Pp. 11–14. URL: <a class="ext" href="https://ruslang.ru/sites/default/files/2024-12/dialect_conf_2024.pdf">https://ruslang.ru/sites/default/files/2024-12/dialect_conf_2024.pdf</a></li>
+          <li><span class="badge">Article</span> Ermolova M.V., Moroz G.A. De-participial -shi-forms in two Pskov and one Smolensk dialects: a comparison of subsystems // Slovĕne. 2024. Vol. 13. No. 2. Pp. 157–183. URL: <a class="ext" href="https://slovene.ru/ojs/index.php/slovene/article/view/635">https://slovene.ru/ojs/index.php/slovene/article/view/635</a></li>
+          <li><span class="badge">Article</span> Zalivina, E. (2024). Automatic Detection of Dialectal Features of Pskov Dialects in the Speech of Native Speakers. In: Ignatov, D.I., et al. Analysis of Images, Social Networks and Texts. AIST 2023. Lecture Notes in Computer Science, vol 14486. Springer, Cham. URL: <a class="ext" href="https://doi.org/10.1007/978-3-031-54534-4_12">doi.org/10.1007/978-3-031-54534-4_12</a></li>
+          <li><span class="badge">Qualifying paper</span> Askarova D.R. Features of verbal stress in West Russian dialects. Faculty of Humanities (Bachelor's). 2024. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/927268838">https://www.hse.ru/edu/vkr/927268838</a></li>
+          <li><span class="badge">Qualifying paper</span> Voitovich E.E. Grammaticalization of the agreement model of passive participles in the dialects of the western dialect zone. Faculty of Humanities (Bachelor's). 2024. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/927268980">https://www.hse.ru/edu/vkr/927268980</a></li>
+          <li><span class="badge">Qualifying paper</span> Tretyakova P.D. Differential object marking in constructions with the modal predicate NADO in Russian dialects. Faculty of Humanities (Bachelor's). 2024. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/927268857">https://www.hse.ru/edu/vkr/927268857</a></li>
+          <li><span class="badge">Coursework</span> Ageeva E.V. The system of usage of -shi participles in the Zapadnodvinsky dialects of Russian based on the village of Pyatiusovo. Faculty of Humanities (Bachelor's). 2024.</li>
+          <li><span class="badge">Coursework</span> Smolkina M.S. Prefixless iteratives in -iva-/-yva-/-va- in Russian dialects (based on oral corpora). Faculty of Humanities (Bachelor's). 2024.</li>
+          <li><span class="badge">Article</span> Ronko R.V., Azanova A.S., Anisimov A.D., Voitovich E.E., Zalivina E.A., Zemlyanskaya S.A., Marchenko I.A., Mochulsky D.I. The dialect of the villages Shetnevo, Makeevo, Sh'elkino, Terekhovo and Stepan'kovo of the Zapadnodvinsky District, Tver Oblast. Elements of a corpus description and field materials. Russian Language in Scientific Coverage, 2023, 1(45): 216–262. URL: <a class="ext" href="https://rjano.ruslang.ru/ru/archive/2023-1/216-262">https://rjano.ruslang.ru/ru/archive/2023-1/216-262</a></li>
+          <li><span class="badge">Qualifying paper</span> Zalivina E.A. Automatic detection of dialectal features of Pskov dialects in the speech of native speakers based on data from the Opochka District of Pskov Oblast and the Zapadnodvinsky District of Tver Oblast. Faculty of Humanities (Bachelor's). 2023. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/837214818">https://www.hse.ru/edu/vkr/837214818</a></li>
+          <li><span class="badge">Qualifying paper</span> Zambrzhitskaya M.S. Phonetic realization of the phoneme /v/ in East Slavic dialects. Faculty of Humanities (Bachelor's). 2023. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/837215364">https://www.hse.ru/edu/vkr/837215364</a></li>
+          <li><span class="badge">Coursework</span> Zemlyanskaya S.A. Pluperfect in Russian dialects. Faculty of Humanities (Bachelor's). 2023.</li>
+          <li><span class="badge">Coursework</span> Zambrzhitskaya M.S. Evolution of two coupled isoglosses in Pskov dialects. 2023.</li>
+          <li><span class="badge">Qualifying paper</span> Tseytina E.I. Constructions with participles in predicative meaning in Russian dialects. Faculty of Humanities (Bachelor's). 2022. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/634899015">https://www.hse.ru/edu/vkr/634899015</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="panel-op" class="dialect-panel" role="tabpanel" aria-labelledby="tab-op" aria-hidden="true">
+      <h3 class="text-center">Dialects of the Opochka District, Pskov Oblast</h3>
+      <div class="section">
+        <h4>Expeditions</h4>
+        <div class="expeds-grid">
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2018</span><span>Kadnikovo, Barabany, Balashi, Glazanovo, Purshevo</span></div>
+            <div class="panel"><h4>Team</h4><ul class="people"> R. V. Ronko, E. A. Volf, M. Yu. Grebyonkina, M. Yu. Ershova, A. V. Okhapkina, A. S. Khadasevich</ul></div>
+          </div>
+          <div class="exped">
+            <div class="exped-header"><span class="badge">2019</span><span>Kadnikovo, Barabany, Balashi, Glazanovo, Purshevo, Laptevo, Samsonovo</span></div>
+            <div class="panel"><h4>Team</h4><ul class="people">R. V. Ronko, A. S. Azanova, M. Yu. Grebyonkina, M. Yu. Ershova, A. S. Khadasevich, M. V. Ermolova</ul></div>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h4>Corpora</h4>
+        <ul>
+          <li>R. V. Ronko, E. A. Volf, M. Yu. Grebyonkina, M. Yu. Ershova, A. V. Okhapkina, A. S. Khadasevich, V. A. Morozova. Corpus of Opochetsky dialects 2019, Moscow: Linguistic Convergence Laboratory, HSE University; V.V. Vinogradov Russian Language Institute of the Russian Academy of Sciences. Electronic resource: <a class="ext" href="https://lingconlab.ru/opochka">https://lingconlab.ru/opochka</a></li>
+        </ul>
+      </div>
+      <div class="section">
+        <h4>Publications</h4>
+        <ul>
+          <li><span class="badge">Article</span> Roman, Ronko. "9 The Nominative Object in modern Northern and Western Russian dialects". Convergence and Divergence in the Eastern Circum-Baltic Area: Volume 1: The Northern Part - A Synthetic View, especially on Finnic, and Case Studies, edited by Björn Wiemer, Peter Arkadiev, Petar Kehayov and Rogier Blokland, De Gruyter Mouton, 2025, pp. 589-606</li>
+          <li><span class="badge">Article</span> Anna, Malysheva and Roman, Ronko. "8 Case selection for the direct object of negated verbs in Russian dialects". Convergence and Divergence in the Eastern Circum-Baltic Area: Volume 1: The Northern Part - A Synthetic View, especially on Finnic, and Case Studies, edited by Björn Wiemer, Peter Arkadiev, Petar Kehayov and Rogier Blokland, De Gruyter Mouton, 2025, pp. 571-587.</li>
+          <li><span class="badge">Qualifying paper</span> Zalivina E.A. Development of a classification system for Russian dialect speech. Faculty of Humanities (Master's). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1054020552">https://www.hse.ru/edu/vkr/1054020552</a></li>
+          <li><span class="badge">Qualifying paper</span> Mochulsky D.I. Semantics of primary prepositions in Russian dialects. Faculty of Humanities (Master's). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1049018255">https://www.hse.ru/edu/vkr/1049018255</a></li>
+          <li><span class="badge">Qualifying paper</span> Kuzmina A.S. Genitive, Dative, and Locative case systems of the a-declension in Russian dialects of primary formation: a corpus study. Faculty of Humanities (Bachelor's). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1051241999">https://www.hse.ru/edu/vkr/1051241999</a></li>
+          <li><span class="badge">Qualifying paper</span> Smolkina M.S. Relative pronouns in Russian dialects: a corpus study. Faculty of Humanities (Bachelor's). 2025. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1051242017">https://www.hse.ru/edu/vkr/1051242017</a></li>
+          <li><span class="badge">Qualifying paper</span> Askarova D.R. Features of verbal stress in West Russian dialects. Faculty of Humanities (Bachelor's). 2024. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/927268838">https://www.hse.ru/edu/vkr/927268838</a></li>
+          <li><span class="badge">Qualifying paper</span> Voitovich E.E. Grammaticalization of the agreement model of passive participles in the dialects of the western dialect zone. Faculty of Humanities (Bachelor's). 2024. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/927268980">https://www.hse.ru/edu/vkr/927268980</a></li>
+          <li><span class="badge">Article</span> E. A. Zalivina. Variability of verb endings in the third-person present tense in the dialect around the town of Opochka (Pskov Oblast, Opochka District). Russian Language in Scientific Coverage 2023. No. 1 (45), Pp. 180 - 201</li>
+          <li><span class="badge">Qualifying paper</span> Azanova A.S. Evolution of the second prepositional case in Russian dialects from the mid-20th to the early 21st century. Faculty of Humanities (Master's). 2022. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/1049018255">https://www.hse.ru/edu/vkr/1049018255</a></li>
+          <li><span class="badge">Article</span> Ronko R. V. The construction with the preposition na and the accusative case in the meaning of addressee with the verbs govorit' and skazat' in some South Russian and West Russian dialects // Slovĕne. 2021. Vol. 10. No. 2. Pp. 277-296.</li>
+          <li><span class="badge">Qualifying paper</span> Grebenkina M.Yu. Attributive combinations with possessive meaning in Russian dialects. Faculty of Humanities (Bachelor's). 2021. URL: <a class="ext" href="https://www.hse.ru/edu/vkr/472526011">https://www.hse.ru/edu/vkr/472526011</a></li>
+          <li><span class="badge">Article</span> Ronko R. V. Materials of the 2019 expedition to the Opochka District of Pskov Oblast: texts with commentary // Russian Language in Scientific Coverage. 2020. No. 39 (1). Pp. 234-258.</li>
+          <li><span class="badge">Article</span> Malysheva A. V., Ronko R. V. Russian object genitive under negation according to dialect corpora and the spoken corpus of the Russian National Corpus // Voprosy Jazykoznanija. 2020. No. 4. Pp. 25-54.</li>
+          <li><span class="badge">Article</span> Dyachenko S.V., Zhidkova E.G., Malysheva A.V., Ronko R.V., Ter-Avanesova A.V. Expedition to the Opochka District of Pskov Oblast // Russian Language in Scientific Coverage, 2018, No. 2 (36).</li>
+          <li><span class="badge">Article</span> Skachedubova M.V. On some features of the use of perfect and pluperfect constructions in Pskov dialects (based on the material of one dialect of the Opochka District of Pskov Oblast) // Izvestiya RAN. Series of Literature and Language. 2022. Vol. 81. No. 2. Pp. 92–105.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="panel-sm" class="dialect-panel" role="tabpanel" aria-labelledby="tab-sm" aria-hidden="true">
+      <h3>Survey Area</h3>
+      <div class="section">
+        <h4>Expeditions</h4>
+        <p class="legend">No expeditions have been added here yet.</p>
+      </div>
+      <div class="section">
+        <h4>Corpora</h4>
+        <p class="legend">Corpora will be listed here.</p>
+      </div>
+      <div class="section">
+        <h4>Publications</h4>
+        <p class="legend">Publications, qualifying papers and coursework will appear here.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      const tabs = Array.from(document.querySelectorAll('.tab-btn'));
+      const panels = {
+        'tab-wd': document.getElementById('panel-wd'),
+        'tab-op': document.getElementById('panel-op'),
+        'tab-sm': document.getElementById('panel-sm')
+      };
+      function activate(id){
+        tabs.forEach(t => t.setAttribute('aria-selected', String(t.id === id)));
+        Object.entries(panels).forEach(([tid, panel]) => {
+          panel.setAttribute('aria-hidden', String(tid !== id));
+        });
+        let hash = '#zapadnaya_dvina';
+        if (id === 'tab-op') hash = '#opochka';
+        if (id === 'tab-sm') hash = '#smolensk';
+        if (location.hash !== hash) history.replaceState(null, '', hash);
+      }
+      tabs.forEach(t => t.addEventListener('click', () => activate(t.id)));
+      if (location.hash === '#opochka') activate('tab-op');
+      else if (location.hash === '#smolensk') activate('tab-sm');
+      else activate('tab-wd');
+    })();
+  </script>
+</body>
+</html>
