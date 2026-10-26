@@ -27,6 +27,7 @@
             <a class="nav-link" href="seminars.html">Семинары</a>
             <a class="nav-link" href="expeditions.html">Экспедиции</a>
             <a class="nav-link" href="workshop.html">Воркшоп</a>
+            <a class="nav-link" id="lang-switch" href="#">EN</a>
         </div>
       </div>
     </nav>
@@ -59,7 +60,23 @@
         </div>
     </div>
 
-<p class="text-center text-muted">По всем вопросам: <a class="text-muted" href="mailto:dialectologicalstudygroup@gmail.com">dialectologicalstudygroup@gmail.com</a><p>
+<p class="text-center text-muted">По всем вопросам: <a class="text-muted" href="mailto:dialectologicalstudygroup@gmail.com">dialectologicalstudygroup@gmail.com</a></p>
+
+<script>
+(function () {
+  var path = location.pathname;
+  if (path === '/' || path === '') path = '/index.html';
+  var isEn = /_en\.html$/.test(path);
+  var link = document.getElementById('lang-switch');
+  if (isEn) {
+    link.textContent = 'RU';
+    link.href = path.replace(/_en\.html$/, '.html');
+  } else {
+    link.textContent = 'EN';
+    link.href = path.replace(/\.html$/, '_en.html');
+  }
+})();
+</script>
 
 </body>
 </html>
